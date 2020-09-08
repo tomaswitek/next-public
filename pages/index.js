@@ -18,7 +18,7 @@ export default function Home() {
         >
           Powered by{" "}
           <img
-            src={`client/${client}/company_logo.svg`}
+            src="client/company_logo.svg"
             alt="Vercel Logo"
             className={styles.logo}
           />

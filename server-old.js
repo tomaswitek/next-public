@@ -13,11 +13,12 @@ app.prepare().then(() => {
     // This tells it to parse the query portion of the URL.
     const parsedUrl = parse(req.url, true);
     const {pathname, query} = parsedUrl;
+    const {CLIENT} = process.env;
 
-    if (pathname === "/a") {
-      app.render(req, res, "/a", query);
-    } else if (pathname === "/b") {
-      app.render(req, res, "/b", query);
+    if (pathname.includes("/client/")) {
+      console.log("trying to server client asset", req.url, CLIENT);
+      // app.render(req, res, "/b", query);
+      handle(req, res, parsedUrl);
     } else {
       handle(req, res, parsedUrl);
     }
